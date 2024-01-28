@@ -1,7 +1,7 @@
 let ip=document.getElementById("ip");
 let pais=document.getElementById("pais");
 let continente=document.getElementById("continente");
-let ciudad=document.getElementById("city");
+let ciudad=document.getElementById("ciudad");
 let zona_horaria=document.getElementById("zona_horaria");
 
 const solicitudAPI = () => {
