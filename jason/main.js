@@ -23,7 +23,7 @@ axios.get("https://progwebform.000webhostapp.com/php-geoip-api/index.php")
   .finally(function () {
     // siempre sera executado
   }); 
-};
+
   if (pais === "Mexico") {
   // Hacer la petición a la URL determinada
   axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
