@@ -36,31 +36,35 @@ const solicitudAPI = () => {
           .then(segundaResponse => {
             // Hacer algo con la respuesta de la segunda URL
             console.log(segundaResponse.data);
-            ip.innerHTML = response.data.ip;
-            pais.innerHTML = response.data.pais;
-            ciudad.innerHTML = response.data.ciudad;
-            zona_horaria.innerHTML = response.data.zona_horaria;
-            console.log(primeraResponse.data);
+            ip.innerHTML = segundaResponse.data.ip;
+            pais.innerHTML = segundaResponse.data.pais;
+            ciudad.innerHTML = segundaResponse.data.ciudad;
+            zona_horaria.innerHTML = segundaResponse.data.zona_horaria;
+            console.log(segundaResponse.data);
           })
           .catch(error => {
             console.error('Error en la segunda URL:', error);
           });
-      } else if (response.data.continente === 'North America'){
+      } else if (response.data.continente === 'Oceania'){
         // Hacer algo con la segunda URL
-        axios.get("https://bddcuenta2.000webhostapp.com/location_examen/index.php")
+        axios.get("https://bddcuenta3.000webhostapp.com/location_examen/index.php")
           .then(terceraResponse => {
             // Hacer algo con la respuesta de la segunda URL
             console.log(terceraResponse.data);
-            ip.innerHTML = response.data.ip;
-            pais.innerHTML = response.data.pais;
-            ciudad.innerHTML = response.data.ciudad;
-            zona_horaria.innerHTML = response.data.zona_horaria;
+            ip.innerHTML = terceraResponse.data.ip;
+            pais.innerHTML = terceraResponse.data.pais;
+            ciudad.innerHTML = terceraResponse.data.ciudad;
+            zona_horaria.innerHTML = terceraResponse.data.zona_horaria;
             console.log(terceraResponse.data);
           })
           .catch(error => {
             console.error('Error en la segunda URL:', error);
           });
-    })
+     } else {
+          // Mensaje si la IP no pertenece a North America, Oceania o Africa
+          console.log("Tu IP no pertenece a North America, Oceania o Africa");
+      }
+    } )
     .catch(function (error) {
       // manejar error
       console.log(error);
