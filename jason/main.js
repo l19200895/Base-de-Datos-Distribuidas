@@ -6,7 +6,6 @@ let zona_horaria=document.getElementById("zona_horaria");
 
 const solicitudAPI = () => {
  // Hacer una petición para un usuario con ID especifico
- if(pais === "Mexico") {
 axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
   .then(function (response) {
     // manejar respuesta exitosa
@@ -22,7 +21,7 @@ axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
     console.log(error);
   });
 
-    }else if(pais === "Canada") {
+   if(pais === "Canada") {
       axios.get("https://bddcuenta2.000webhostapp.com/location_examen/index.php")
     .then(function (response) {
       console.log(response.data);
