@@ -1,52 +1,60 @@
 let ip = document.getElementById("ip");
-let pais = document.getElementById("pais");
+let paisInput = document.getElementById("pais");
 let continente = document.getElementById("continente");
 let ciudad = document.getElementById("ciudad");
 let zona_horaria = document.getElementById("zona_horaria");
 
-const hacerSolicitud = (url) => {
-  axios.get(url)
-    .then(function (response) {
-      // manejar respuesta exitosa
-      console.log(response.data);
-      ip.innerHTML = response.data.ip;
-      pais.innerHTML = response.data.pais;
-      continente.innerHTML = response.data.continente;
-      ciudad.innerHTML = response.data.ciudad;
-      zona_horaria.innerHTML = response.data.zona_horaria;
-    })
-    .catch(function (error) {
-      // manejar error
-      console.log(error);
-    });
-};
-
 const solicitudAPI = () => {
-  // Obtener el valor del país
-  const paisValue = pais.value;
+  // Hacer una petición según el país seleccionado
+  const pais = paisInput.value.toLowerCase(); // Convertir a minúsculas para hacer la comparación insensible a mayúsculas/minúsculas
 
-  // Determinar la URL de la API según el país
-  let apiUrl;
-  switch (paisValue) {
-    case "Mexico":
-      apiUrl = "https://progwebform.000webhostapp.com/location-examen/index.php";
-      break;
-    case "Canada":
-      apiUrl = "https://bddcuenta2.000webhostapp.com/location_examen/index.php";
-      break;
-    case "South Korea":
-      apiUrl = "https://bddcuenta3.000webhostapp.com/location_examen/index.php";
-      break;
-    // Agregar más casos según sea necesario
-
-    default:
-      // Manejar el caso en el que el país no coincida con ninguno de los casos anteriores
-      console.log("País no reconocido");
-      return;
+  if (pais === "mexico") {
+    axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
+      .then(function (response) {
+        // Manejar respuesta exitosa
+        console.log(response.data);
+        ip.innerHTML = response.data.ip;
+        paisInput.innerHTML = response.data.pais; // Modificar la variable de entrada
+        continente.innerHTML = response.data.continente;
+        ciudad.innerHTML = response.data.ciudad;
+        zona_horaria.innerHTML = response.data.zona_horaria;
+      })
+      .catch(function (error) {
+        // Manejar error
+        console.log(error);
+      });
+  } else if (pais === "canada") {
+    axios.get("https://bddcuenta2.000webhostapp.com/location_examen/index.php")
+      .then(function (response) {
+        console.log(response.data);
+        ip.innerHTML = response.data.ip;
+        paisInput.innerHTML = response.data.pais; // Modificar la variable de entrada
+        continente.innerHTML = response.data.continente;
+        ciudad.innerHTML = response.data.ciudad;
+        zona_horaria.innerHTML = response.data.zona_horaria;
+      })
+      .catch(function (error) {
+        // Manejar error
+        console.log(error);
+      });
+  } else if (pais === "south korea") {
+    axios.get("https://bddcuenta3.000webhostapp.com/location_examen/index.php")
+      .then(function (response) {
+        console.log(response.data);
+        ip.innerHTML = response.data.ip;
+        paisInput.innerHTML = response.data.pais; // Modificar la variable de entrada
+        continente.innerHTML = response.data.continente;
+        ciudad.innerHTML = response.data.ciudad;
+        zona_horaria.innerHTML = response.data.zona_horaria;
+      })
+      .catch(function (error) {
+        // Manejar error
+        console.log(error);
+      })
+      .finally(function () {
+        // Siempre será ejecutado
+      });
   }
-
-  // Hacer la solicitud con la URL determinada
-  hacerSolicitud(apiUrl);
 };
 
 window.onload = solicitudAPI;
