@@ -10,34 +10,68 @@ const solicitudAPI = () => {
 
   // Verificar el valor de la variable "pais" y asignar la URL correspondiente
   if (pais.innerHTML === "Mexico") {
-    apiUrl = "https://progwebform.000webhostapp.com/location-examen/index.php";
+    // Hacer la petición a la URL determinada
+  axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
+  .then(function (response) {
+    // Manejar respuesta exitosa
+    console.log(response.data);
+    ip.innerHTML = response.data.ip;
+    pais.innerHTML = response.data.pais;
+    continente.innerHTML = response.data.continente;
+    ciudad.innerHTML = response.data.ciudad;
+    zona_horaria.innerHTML = response.data.zona_horaria;
+  })
+  .catch(function (error) {
+    // Manejar error
+    console.log(error);
+  })
+  .finally(function () {
+    // Siempre será ejecutado
+  });
+  
   } else if (pais.innerHTML === "Korea") {
-    apiUrl = "https://bddcuenta2.000webhostapp.com/location_examen/index.php";
+    // Hacer la petición a la URL determinada
+  axios.get("https://bddcuenta2.000webhostapp.com/location_examen/index.php")
+  .then(function (response) {
+    // Manejar respuesta exitosa
+    console.log(response.data);
+    ip.innerHTML = response.data.ip;
+    pais.innerHTML = response.data.pais;
+    continente.innerHTML = response.data.continente;
+    ciudad.innerHTML = response.data.ciudad;
+    zona_horaria.innerHTML = response.data.zona_horaria;
+  })
+  .catch(function (error) {
+    // Manejar error
+    console.log(error);
+  })
+  .finally(function () {
+    // Siempre será ejecutado
+  });
+  
   } else if (pais.innerHTML === "Canada") {
-    apiUrl = "https://bddcuenta3.000webhostapp.com/location_examen/index.php";
+    // Hacer la petición a la URL determinada
+  axios.get("https://bddcuenta3.000webhostapp.com/location_examen/index.php")
+  .then(function (response) {
+    // Manejar respuesta exitosa
+    console.log(response.data);
+    ip.innerHTML = response.data.ip;
+    pais.innerHTML = response.data.pais;
+    continente.innerHTML = response.data.continente;
+    ciudad.innerHTML = response.data.ciudad;
+    zona_horaria.innerHTML = response.data.zona_horaria;
+  })
+  .catch(function (error) {
+    // Manejar error
+    console.log(error);
+  })
+  .finally(function () {
+    // Siempre será ejecutado
+  });
+  
   } else {
     console.log("País no reconocido");
     return; // Salir de la función si el país no es reconocido
   }
-
-  // Hacer la petición a la URL determinada
-  axios.get(apiUrl)
-    .then(function (response) {
-      // Manejar respuesta exitosa
-      console.log(response.data);
-      ip.innerHTML = response.data.ip;
-      pais.innerHTML = response.data.pais;
-      continente.innerHTML = response.data.continente;
-      ciudad.innerHTML = response.data.ciudad;
-      zona_horaria.innerHTML = response.data.zona_horaria;
-    })
-    .catch(function (error) {
-      // Manejar error
-      console.log(error);
-    })
-    .finally(function () {
-      // Siempre será ejecutado
-    });
-};
-
+}
 window.onload = solicitudAPI;
