@@ -17,7 +17,7 @@ const solicitudAPI = () => {
       zona_horaria.innerHTML = response.data.zona_horaria;
 
       // Verifica si el continente es África
-      if (response.data.continente === 'Africa') {
+      if (response.data.continente === 'Asia') {
         // Hacer algo con la primera URL
         axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
           .then(primeraResponse => {
