@@ -7,7 +7,7 @@ let zona_horaria=document.getElementById("zona_horaria");
 
 const solicitudAPI = () => {
  // Hacer una petición para un usuario con ID especifico
-axios.get("https://progwebform.000webhostapp.com/php-geoip-api/index.php")
+axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
   .then(function (response) {
     // manejar respuesta exitosa
     console.log(response.data);
