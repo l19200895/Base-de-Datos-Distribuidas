@@ -6,7 +6,7 @@ let zona_horaria=document.getElementById("zona_horaria");
 
 const solicitudAPI = () => {
  // Hacer una petición para un usuario con ID especifico
- if(pais.value === "Mexico") {
+ if(pais === "Mexico") {
 axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
   .then(function (response) {
     // manejar respuesta exitosa
@@ -22,7 +22,7 @@ axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
     console.log(error);
   });
 
-    }else if(pais.value === "Canada") {
+    }else if(pais === "Canada") {
       axios.get("https://bddcuenta2.000webhostapp.com/location_examen/index.php")
     .then(function (response) {
       console.log(response.data);
@@ -36,7 +36,7 @@ axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
       // Manejar error
       console.log(error);
     });
-    }else if(pais.value === "South Korea") {
+    }else if(pais === "South Korea") {
       axios.get("https://bddcuenta3.000webhostapp.com/location_examen/index.php")
      .then(function (response) {
       console.log(response.data);
