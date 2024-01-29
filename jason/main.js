@@ -1,3 +1,4 @@
+
 let ip=document.getElementById("ip");
 let pais=document.getElementById("pais");
 let continente=document.getElementById("continente");
@@ -24,28 +25,7 @@ axios.get("https://progwebform.000webhostapp.com/php-geoip-api/index.php")
     // siempre sera executado
   }); 
 };
-if (pais.innerHTML === "Mexico") {
-  // Hacer la petición a la URL determinada
-  axios.get("https://progwebform.000webhostapp.com/location-examen/conexion.php")
-    .then(function (response) {
-      // Manejar respuesta exitosa
-      console.log(response.data);
-      ip.innerHTML = response.data.ip;
-      pais.innerHTML = response.data.pais;
-      continente.innerHTML = response.data.continente;
-      ciudad.innerHTML = response.data.ciudad;
-      zona_horaria.innerHTML = response.data.zona_horaria;
-    })
-    .catch(function (error) {
-      // Manejar error
-      console.log(error);
-    })
-    .finally(function () {
-      // Siempre será ejecutado
-    }); 
-     }else {
-      console.log("País no reconocido");
-      return; // Salir de la función si el país no es reconocido
-    };
-    window.onload = solicitudAPI;
 
+// Llama al evento load cada vez que se actualiza la pagina y llama a la funcion solicitudAPI que tiene la rutina de 
+// llamar a la API desde axios
+window.onload = solicitudAPI;
