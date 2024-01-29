@@ -41,7 +41,7 @@ axios.get("https://progwebform.000webhostapp.com/location-examen/index.php")
     .finally(function () {
       // Siempre será ejecutado
     }); 
-    }else if(pais === "korea") {
+    }else if(pais === "South Korea") {
       axios.get("https://bddcuenta3.000webhostapp.com/location_examen/index.php")
      .then(function (response) {
       console.log(response.data);
